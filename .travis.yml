@@ -1,0 +1,8 @@
+language: elixir
+sudo: false
+elixir:
+  - 1.7
+otp_release:
+  - 21.1
+addons:
+  postgresql: 9.6
