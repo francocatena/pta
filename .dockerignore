@@ -1,0 +1,7 @@
+.git
+_build/
+deps/
+doc/
+erl_crash.dump
+*.ez
+pta-*.tar

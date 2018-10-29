@@ -1,0 +1,7 @@
+_build/
+config/*.secret.exs
+deps/
+doc/
+priv/static/
+erl_crash.dump
+curl_test_headers.txt
