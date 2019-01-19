@@ -18,14 +18,14 @@ defmodule PtaWeb.Router do
     resources "/passwords", PasswordController, only: [:edit]
   end
 
-  scope "/api/v1", PtaWeb do
+  scope "/v1", PtaWeb do
     pipe_through :api
 
     resources "/sessions", SessionController, only: [:create], singleton: true
     resources "/passwords", PasswordController, only: [:create, :update]
   end
 
-  scope "/api/v1", PtaWeb do
+  scope "/v1", PtaWeb do
     pipe_through [:api, :authenticated]
 
     resources "/sessions", SessionController, only: [:delete], singleton: true

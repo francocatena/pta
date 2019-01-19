@@ -90,11 +90,11 @@ defmodule Pta.Accounts.Account do
 
   defp migrate(account) do
     prefix = prefix(account)
-    path = migrations_path(Repo)
 
-    handle_database_exceptions(fn ->
-      Ecto.Migrator.run(Repo, path, :up, all: true, prefix: prefix)
-    end)
+    {:ok, _} =
+      handle_database_exceptions(fn ->
+        Ecto.Migrator.run(Repo, :up, all: true, log: :info, prefix: prefix)
+      end)
   end
 
   defp handle_database_exceptions(fun) do
@@ -104,24 +104,5 @@ defmodule Pta.Accounts.Account do
       e in Postgrex.Error ->
         {:error, Postgrex.Error.message(e)}
     end
-  end
-
-  defp migrations_path(repo) do
-    repo
-    |> source_repo_priv()
-    |> Path.join("migrations")
-  end
-
-  defp source_repo_priv(repo) do
-    repo_config = repo.config()
-    priv = repo_config[:priv] || default_source_repo_priv(repo)
-
-    Application.app_dir(:pta) |> Path.join(priv)
-  end
-
-  defp default_source_repo_priv(repo) do
-    # Extracted from:
-    # https://github.com/elixir-ecto/ecto/blob/v2.2.6/lib/mix/ecto.ex#L162
-    "priv/#{repo |> Module.split() |> List.last() |> Macro.underscore()}"
   end
 end

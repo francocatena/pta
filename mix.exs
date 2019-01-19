@@ -5,7 +5,7 @@ defmodule Pta.MixProject do
     [
       app: :pta,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "~> 1.8",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -34,21 +34,23 @@ defmodule Pta.MixProject do
   defp deps do
     [
       # TODO: remove override: true once guardian supports 1.4
-      {:phoenix, ">= 1.4.0-rc", override: true},
+      {:phoenix, ">= 1.4.0", override: true},
       {:phoenix_pubsub, ">= 1.1.0"},
-      {:phoenix_ecto, ">= 3.5.0"},
-      {:phoenix_html, ">= 2.12.0"},
+      {:phoenix_html, ">= 2.13.0"},
+      {:phoenix_ecto, ">= 4.0.0"},
+      {:ecto_sql, ">= 3.0.0"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, ">= 0.16.0"},
       {:jason, ">= 1.1.0"},
       {:plug_cowboy, ">= 2.0.0"},
       {:comeonin, ">= 4.1.0"},
       {:argon2_elixir, ">= 1.3.0"},
-      {:guardian, ">= 1.1.0"},
-      {:scrivener_ecto, ">= 1.3.0"},
+      {:guardian, ">= 1.2.0"},
+      {:scrivener_ecto, ">= 2.0.0"},
       {:bamboo, ">= 1.1.0"},
       {:bamboo_smtp, ">= 1.6.0"},
       {:paper_trail, ">= 0.8.0"},
+      {:cors_plug, ">= 2.0.0"},
       {:distillery, ">= 2.0.0"}
     ]
   end
