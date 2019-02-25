@@ -25,4 +25,4 @@ config :pta, Pta.Repo,
 
 config :argon2_elixir,
   t_cost: 1,
-  m_cost: 3
+  m_cost: 5

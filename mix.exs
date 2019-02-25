@@ -33,8 +33,7 @@ defmodule Pta.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      # TODO: remove override: true once guardian supports 1.4
-      {:phoenix, ">= 1.4.0", override: true},
+      {:phoenix, ">= 1.4.0"},
       {:phoenix_pubsub, ">= 1.1.0"},
       {:phoenix_html, ">= 2.13.0"},
       {:phoenix_ecto, ">= 4.0.0"},
@@ -43,11 +42,10 @@ defmodule Pta.MixProject do
       {:gettext, ">= 0.16.0"},
       {:jason, ">= 1.1.0"},
       {:plug_cowboy, ">= 2.0.0"},
-      {:comeonin, ">= 4.1.0"},
-      {:argon2_elixir, ">= 1.3.0"},
+      {:argon2_elixir, ">= 2.0.0"},
       {:guardian, ">= 1.2.0"},
       {:scrivener_ecto, ">= 2.0.0"},
-      {:bamboo, ">= 1.1.0"},
+      {:bamboo, ">= 1.2.0"},
       {:bamboo_smtp, ">= 1.6.0"},
       {:paper_trail, ">= 0.8.0"},
       {:cors_plug, ">= 2.0.0"},
